@@ -1,148 +1,411 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DOREMON CAFE Menu</title>
+<title>Doremon Cafe - Order</title>
+
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#fffdf5;color:#17233b}
-header{background:#17498f;color:white;text-align:center;padding:25px 10px}
-h1{margin:0;font-size:34px}
-header p{margin:7px 0}
-main{max-width:700px;margin:auto;padding:12px}
-section{background:white;border:2px solid #17498f;border-radius:15px;margin:14px 0;padding:15px}
-h2{color:#17498f;font-size:20px;border-bottom:2px solid #e6a900;padding-bottom:8px}
-.item{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed #bbb}
-.price{font-weight:bold;white-space:nowrap}
-footer{text-align:center;padding:25px;font-weight:bold;color:#17498f}
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f5f5f5;
+  color:#222;
+}
+
+header{
+  background:#17498f;
+  color:white;
+  text-align:center;
+  padding:20px 15px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+header h1{
+  margin:0;
+  font-size:28px;
+}
+
+header p{
+  margin:6px 0 0;
+}
+
+.container{
+  max-width:700px;
+  margin:auto;
+  padding:15px;
+}
+
+.table-box{
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+  box-shadow:0 2px 8px #ddd;
+}
+
+.table-box input{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+}
+
+.category{
+  background:#17498f;
+  color:white;
+  padding:10px 14px;
+  border-radius:8px;
+  margin:18px 0 10px;
+  font-size:20px;
+}
+
+.item{
+  background:white;
+  padding:14px;
+  margin:8px 0;
+  border-radius:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 7px #ddd;
+}
+
+.item-info{
+  flex:1;
+}
+
+.item-name{
+  font-weight:bold;
+  font-size:17px;
+}
+
+.price{
+  color:#17498f;
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.add-btn{
+  background:#17498f;
+  color:white;
+  border:0;
+  padding:9px 15px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.cart{
+  background:white;
+  padding:18px;
+  border-radius:12px;
+  margin-top:20px;
+  box-shadow:0 2px 8px #ddd;
+}
+
+.cart h2{
+  margin-top:0;
+  color:#17498f;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #ddd;
+  padding:10px 0;
+}
+
+.qty button{
+  border:0;
+  background:#17498f;
+  color:white;
+  width:30px;
+  height:30px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.total{
+  font-size:22px;
+  font-weight:bold;
+  margin-top:15px;
+  text-align:right;
+}
+
+.order-btn{
+  width:100%;
+  margin-top:15px;
+  padding:14px;
+  background:#159447;
+  color:white;
+  border:0;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.clear-btn{
+  width:100%;
+  margin-top:8px;
+  padding:11px;
+  background:#ddd;
+  border:0;
+  border-radius:8px;
+  cursor:pointer;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>DOREMON CAFE</h1>
-<p>GOOD FOOD • GOOD MOOD • GOOD TIMES</p>
-<p>📞 +91 88940 24590</p>
+  <h1>DOREMON CAFE</h1>
+  <p>GOOD FOOD • GOOD MOOD • GOOD TIMES</p>
 </header>
 
-<main>
+<div class="container">
 
-<section>
-<h2>🥟 PAHADI SIDDU SPECIAL</h2>
-<div class="item"><span>Doremon Special Ghee Siddu</span><b>₹100</b></div>
-</section>
+  <div class="table-box">
+    <label><b>Table Number</b></label>
+    <input id="tableNumber" type="number" placeholder="Enter your table number">
+  </div>
 
-<section>
-<h2>⭐ COMBOS</h2>
-<div class="item"><span>Paneer Sandwich & Fries</span><b>₹140</b></div>
-<div class="item"><span>Paneer Tikka Burger & Fries</span><b>₹125</b></div>
-<div class="item"><span>Paneer Burger & Fries</span><b>₹110</b></div>
-<div class="item"><span>Sandwich Cheese & Fries</span><b>₹110</b></div>
-<div class="item"><span>Cheese Burger & Fries</span><b>₹100</b></div>
-<div class="item"><span>Veg Grilled Sandwich & Fries</span><b>₹100</b></div>
-<div class="item"><span>Veg Burger & Fries</span><b>₹90</b></div>
-</section>
+  <div class="category">PAHADI SIDDU SPECIAL</div>
 
-<section>
-<h2>🍕 COMFORT MAINS — PIZZA</h2>
-<div class="item"><span>Doremon Special Pizza</span><b>₹180</b></div>
-<div class="item"><span>Paneer Makhani Pizza</span><b>₹180</b></div>
-<div class="item"><span>Tandoori Paneer Pizza</span><b>₹160</b></div>
-<div class="item"><span>Paneer Tikka Pizza</span><b>₹150</b></div>
-<div class="item"><span>Mushroom Paneer Pizza</span><b>₹150</b></div>
-<div class="item"><span>Paneer Corn Pizza</span><b>₹150</b></div>
-<div class="item"><span>Olive Jalapeno Sweet Corn Pizza</span><b>₹150</b></div>
-<div class="item"><span>Delight Pizza (Capsicum, Jalapeno, Mushroom)</span><b>₹140</b></div>
-<div class="item"><span>Mushroom Pizza</span><b>₹140</b></div>
-<div class="item"><span>Jalapeno Olive Pizza</span><b>₹140</b></div>
-<div class="item"><span>Double Cheese Margherita Pizza</span><b>₹130</b></div>
-<div class="item"><span>Capsicum Mushroom Pizza</span><b>₹130</b></div>
-<div class="item"><span>Jalapeno Tomato Pizza</span><b>₹120</b></div>
-<div class="item"><span>Onion Jalapeno Pizza</span><b>₹120</b></div>
-<div class="item"><span>Onion Capsicum Tomato Pizza</span><b>₹120</b></div>
-<div class="item"><span>Onion & Sweet Corn Pizza</span><b>₹120</b></div>
-<div class="item"><span>Sweet Corn Pizza</span><b>₹110</b></div>
-<div class="item"><span>Margherita Pizza</span><b>₹110</b></div>
-<div class="item"><span>Onion & Capsicum Pizza</span><b>₹110</b></div>
-<div class="item"><span>Onion Tomato Pizza</span><b>₹100</b></div>
-<div class="item"><span>Capsicum Pizza</span><b>₹100</b></div>
-</section>
+  <div class="item">
+    <div class="item-info">
+      <div class="item-name">Doremon Special Ghee Siddu</div>
+      <div class="price">₹100</div>
+    </div>
+    <button class="add-btn" onclick="addItem('Doremon Special Ghee Siddu',100)">ADD</button>
+  </div>
 
-<section>
-<h2>🥟 QUICK BITES</h2>
-<div class="item"><span>Paneer Kurkure Momos (Half/Full)</span><b>₹80 / ₹160</b></div>
-<div class="item"><span>Paneer Fried Momos</span><b>₹70 / ₹140</b></div>
-<div class="item"><span>Paneer Momos</span><b>₹60 / ₹120</b></div>
-<div class="item"><span>Veg Kurkure Momos</span><b>₹60 / ₹110</b></div>
-<div class="item"><span>Veg Fried Momos</span><b>₹50 / ₹90</b></div>
-<div class="item"><span>Veg Steam Momos</span><b>₹40 / ₹70</b></div>
-<div class="item"><span>Veg Spring Roll</span><b>₹40 / ₹80</b></div>
-</section>
+  <div class="category">TEA & COFFEE</div>
 
-<section>
-<h2>🍔 BURGERS & SANDWICHES</h2>
-<div class="item"><span>Paneer Tikka Sandwich</span><b>₹110</b></div>
-<div class="item"><span>Paneer Sandwich</span><b>₹100</b></div>
-<div class="item"><span>Cheese Corn Sandwich</span><b>₹90</b></div>
-<div class="item"><span>Veg Grilled Cheese Sandwich</span><b>₹80</b></div>
-<div class="item"><span>Paneer Tikka Burger</span><b>₹75</b></div>
-<div class="item"><span>Veg Grilled Sandwich</span><b>₹70</b></div>
-<div class="item"><span>Paneer Burger</span><b>₹70</b></div>
-<div class="item"><span>Veg Cheese Burger</span><b>₹65</b></div>
-<div class="item"><span>Veg Aloo Tikki Burger</span><b>₹55</b></div>
-</section>
+  <div id="tea"></div>
 
-<section>
-<h2>🍟 SMALL PLATES</h2>
-<div class="item"><span>Cheese Garlic Bread</span><b>₹100</b></div>
-<div class="item"><span>Peri Peri Fries</span><b>₹100</b></div>
-<div class="item"><span>French Fries</span><b>₹70</b></div>
-</section>
+  <div class="category">COMBOS</div>
 
-<section>
-<h2>🍰 SWEET TREAT</h2>
-<div class="item"><span>Hot Chocolate Brownie with Ice Cream</span><b>₹100</b></div>
-<div class="item"><span>Flavoured Ice Cream</span><b>₹50</b></div>
-<div class="item"><span>Cup Cake</span><b>₹30</b></div>
-<div class="item"><span>Pastry</span><b>₹25</b></div>
-</section>
+  <div id="combos"></div>
 
-<section>
-<h2>☕ TEA & COFFEE</h2>
-<div class="item"><span>Mocha</span><b>₹110</b></div>
-<div class="item"><span>Macchiato</span><b>₹75</b></div>
-<div class="item"><span>Hot Chocolate</span><b>₹75</b></div>
-<div class="item"><span>Hot Coffee</span><b>₹50</b></div>
-<div class="item"><span>Cappuccino</span><b>₹50</b></div>
-<div class="item"><span>Latte</span><b>₹50</b></div>
-<div class="item"><span>Espresso</span><b>₹50</b></div>
-<div class="item"><span>Doppio</span><b>₹50</b></div>
-<div class="item"><span>Kahwa Tea</span><b>₹40</b></div>
-</section>
+  <div class="category">PIZZAS</div>
 
-<section>
-<h2>🥖 ADDITIONAL SIDES</h2>
-<div class="item"><span>Garlic Bread</span><b>₹75</b></div>
-<div class="item"><span>Cheese Garlic Bread</span><b>₹100</b></div>
-<div class="item"><span>Peach Iced Tea</span><b>₹80</b></div>
-<div class="item"><span>Lemon Iced Tea</span><b>₹70</b></div>
-<div class="item"><span>Masala Lemonade</span><b>₹60</b></div>
-</section>
+  <div id="pizzas"></div>
 
-<section>
-<h2>➕ EXTRA ADD-ONS</h2>
-<div class="item"><span>Extra Cheese</span><b>₹30</b></div>
-<div class="item"><span>Extra Paneer</span><b>₹40</b></div>
-<div class="item"><span>Extra Veggies</span><b>₹20</b></div>
-<div class="item"><span>Extra Sauce</span><b>₹15</b></div>
-</section>
+  <div class="cart">
+    <h2>🛒 Your Order</h2>
+    <div id="cartItems">
+      <p>Your cart is empty.</p>
+    </div>
 
-</main>
+    <div class="total">
+      Total: ₹<span id="total">0</span>
+    </div>
 
-<footer>
-THANK YOU FOR CHOOSING DOREMON CAFE! ❤️
-</footer>
+    <button class="order-btn" onclick="placeOrder()">
+      📲 PLACE ORDER
+    </button>
+
+    <button class="clear-btn" onclick="clearCart()">
+      Clear Order
+    </button>
+  </div>
+
+</div>
+
+<script>
+
+let cart = {};
+
+const tea = [
+  ["Mocha",110],
+  ["Macchiato",75],
+  ["Hot Chocolate",75],
+  ["Hot Coffee",50],
+  ["Cappuccino",50],
+  ["Latte",50],
+  ["Espresso",50],
+  ["Doppio",50],
+  ["Kulhad Tea",30]
+];
+
+const combos = [
+  ["Paneer Sandwich & Fries",140],
+  ["Paneer Tikka Burger & Fries",125],
+  ["Paneer Burger & Fries",110],
+  ["Sandwich Cheese & Fries",110],
+  ["Cheese Burger & Fries",100],
+  ["Veg Grilled Sandwich & Fries",100],
+  ["Veg Burger & Fries",90]
+];
+
+const pizzas = [
+  ["Doremon Special Pizza",180],
+  ["Paneer Makhani Pizza",180],
+  ["Tandoori Paneer Pizza",160],
+  ["Paneer Mushroom Pizza",160],
+  ["Paneer Tikka Pizza",150],
+  ["Mushroom Paneer Pizza",150],
+  ["Paneer Corn Pizza",150],
+  ["Paneer Onion Pizza",150],
+  ["Olive Jalapeno Sweet Corn Pizza",150],
+  ["Delight Pizza",140]
+];
+
+function createItems(list, id){
+  const box = document.getElementById(id);
+
+  list.forEach(item => {
+    box.innerHTML += `
+      <div class="item">
+        <div class="item-info">
+          <div class="item-name">${item[0]}</div>
+          <div class="price">₹${item[1]}</div>
+        </div>
+        <button class="add-btn"
+          onclick="addItem('${item[0]}',${item[1]})">
+          ADD
+        </button>
+      </div>
+    `;
+  });
+}
+
+createItems(tea,"tea");
+createItems(combos,"combos");
+createItems(pizzas,"pizzas");
+
+function addItem(name,price){
+
+  if(cart[name]){
+    cart[name].qty++;
+  }else{
+    cart[name]={
+      price:price,
+      qty:1
+    };
+  }
+
+  updateCart();
+}
+
+function decreaseItem(name){
+
+  if(cart[name]){
+    cart[name].qty--;
+
+    if(cart[name].qty<=0){
+      delete cart[name];
+    }
+  }
+
+  updateCart();
+}
+
+function updateCart(){
+
+  const box=document.getElementById("cartItems");
+  const totalBox=document.getElementById("total");
+
+  box.innerHTML="";
+
+  let total=0;
+
+  const names=Object.keys(cart);
+
+  if(names.length===0){
+    box.innerHTML="<p>Your cart is empty.</p>";
+  }
+
+  names.forEach(name=>{
+
+    const item=cart[name];
+
+    const amount=item.price*item.qty;
+
+    total+=amount;
+
+    box.innerHTML+=`
+      <div class="cart-item">
+
+        <div>
+          <b>${name}</b><br>
+          ₹${item.price} × ${item.qty}
+        </div>
+
+        <div class="qty">
+          <button onclick="decreaseItem('${name}')">−</button>
+          <b> ${item.qty} </b>
+          <button onclick="addItem('${name}',${item.price})">+</button>
+        </div>
+
+      </div>
+    `;
+  });
+
+  totalBox.innerText=total;
+}
+
+function clearCart(){
+
+  cart={};
+
+  updateCart();
+}
+
+function placeOrder(){
+
+  const table=document.getElementById("tableNumber").value;
+
+  if(!table){
+    alert("Please enter your table number.");
+    return;
+  }
+
+  const names=Object.keys(cart);
+
+  if(names.length===0){
+    alert("Please add some items first.");
+    return;
+  }
+
+  let message="*DOREMON CAFE - NEW ORDER*%0A%0A";
+
+  message+="*Table No:* "+table+"%0A%0A";
+
+  let total=0;
+
+  names.forEach(name=>{
+
+    const item=cart[name];
+
+    const amount=item.price*item.qty;
+
+    total+=amount;
+
+    message+="• "+name+
+      " × "+item.qty+
+      " = ₹"+amount+"%0A";
+  });
+
+  message+="%0A*TOTAL: ₹"+total+"*";
+
+  const phone="918894024590";
+
+  const url="https://wa.me/"+phone+"?text="+message;
+
+  window.open(url,"_blank");
+}
+
+</script>
 
 </body>
 </html>
